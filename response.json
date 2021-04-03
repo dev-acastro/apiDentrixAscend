@@ -1,0 +1,20 @@
+{
+  "type": "TxCaseV1",
+  "status": "NEW",
+  "patient": {
+    "id": "7000000457903",
+    "type": "PatientV1",
+    "url": "https://prod.hs1api.com/ascend-gateway/api/v1/patients/7000000457903"
+  },
+  "lastModified": "2016-04-20T01:14:04.737Z",
+  "id": "7000000028446",
+  "user": {
+    "id": "7000000000424",
+    "type": "User",
+    "url": "https://prod.hs1api.com/ascend-gateway/api/v0/users/7000000000424"
+  },
+  "name": "Treatment Plan",
+  "showNote": false,
+  "showExpirationDate": false
+},
+{
