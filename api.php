@@ -98,14 +98,22 @@ function postData( $endpoint, $data=NULL){
     return $output;
 }
 
-function getTx(){
+function getTx($id){
 
-    $cases =  getData("txcases", array("filter" => "patient.id==7000001169539"));
+    $data = [
+        "filter" => "patient.id==".$id
+    ];
+
+    $cases =  getData("txcases", $data);
+
+
 
     foreach ($cases->data as $id => $case){
-        $visits[$case->id] =  getData("visits", array("filter"=>"txCase.id==".$case->id));
+        $visits[$case->id] =  getData("visits", array("filter"=>"txCase.id==".$case->id))->data;
 
     }
+
+    print_r($visits);
 
     foreach ($visits as $visit){
        $txAppoinments[$visit->id]  = getData("appointments", NULL, $visit->appointmet->id);
@@ -115,7 +123,9 @@ function getTx(){
        }
 
     }
-    return $cases ;
+
+  /*  $tx = [$cases, $visits, $txProcedures, $txAppoinments];
+    return  $tx;*/
 
 
 
