@@ -74,7 +74,36 @@ function getData($endpoint, $data=NULL, $i = NULL ){
     return json_decode($output);
 }
 
-function postData( $endpoint, $data=NULL){
+     function getDatav0($endpoint, $data=NULL, $i = NULL ){
+        $params = "";
+        $id = "";
+
+        global $token;
+
+        if(isset($i)){
+            $id = "/". $i;
+        }
+
+        if(isset($data)){
+            $params = "?" . http_build_query($data, '', '&amp;');
+
+        }
+        $curl = curl_init('https://prod.hs1api.com/ascend-gateway/api/v0/'. $endpoint . $id . $params);
+
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, array(
+            'Authorization: Bearer '. $token,
+            'Organization-ID: 5e7b7774c9e1470c0d716320'
+        ));
+
+        $output = curl_exec($curl);
+
+        curl_close($curl);
+
+        return json_decode($output);
+    }
+
+function postData( $endpoint, $data){
     global $token;
     $body = json_encode($data);
 
@@ -113,19 +142,32 @@ function getTx($id){
 
     }
 
-    print_r($visits);
 
     foreach ($visits as $visit){
-       $txAppoinments[$visit->id]  = getData("appointments", NULL, $visit->appointmet->id);
 
-       foreach($visit->procedures as $procedure) {
-           $txProcedures[$visit->id] = getData("patientprocedures", NULL, $procedure->id );
-       }
+        foreach ($visit as $iv){
+
+
+
+            if(isset($iv->appointment->id)){
+                $txAppoinments[$iv->id]  = getData("appointments", NULL, $iv->appointment->id);
+            }
+
+            foreach($iv->procedures as $procedure) {
+                $txProcedures[$iv->id] = getDatav0("patientprocedures", NULL, $procedure->id );
+            }
+        }
+
+
 
     }
 
-  /*  $tx = [$cases, $visits, $txProcedures, $txAppoinments];
-    return  $tx;*/
+
+    $tx = [$cases, $visits, $txProcedures, $txAppoinments];
+
+    print_r($tx);
+
+    //return  $tx;
 
 
 

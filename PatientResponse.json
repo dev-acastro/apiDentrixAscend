@@ -1,0 +1,92 @@
+{
+  "firstName": "",
+  "lastName": "",
+  "contactMethod": "Call me",
+  "languageType": "Spanish",
+  "patientStatus": "ACTIVE",
+  "dateOfBirth": "",
+  "preferredLocation": {
+    "id": 0,
+    "type": "",
+    "url": ""
+  },
+  "address1": "",
+  "city": "",
+  "state": "CA",
+  "postalCode": "",
+  "address2": "",
+  "chartNumber": "",
+  "discountPlan": {
+    "id": 0,
+    "type": "",
+    "url": ""
+  },
+  "emailAddress": "",
+  "firstVisitDate": "",
+  "gender": "M",
+  "id": 0,
+  "lastModified": "",
+  "middleInitial": "",
+  "nameSuffix": "",
+  "phones": [
+    {
+      "phoneType": "HOME",
+      "number": "",
+      "sequence": 0,
+      "extension": "",
+      "id": 0
+    },
+    {
+      "phoneType": "WORK",
+      "number": "",
+      "sequence": 0,
+      "extension": "",
+      "id": 0
+    }
+  ],
+  "preferredDays": [
+    "SUNDAY",
+    "MONDAY"
+  ],
+  "preferredName": "",
+  "preferredTimes": [
+    "EARLY_MORNING",
+    "LATE_MORNING"
+  ],
+  "primaryContact": {
+    "id": 0,
+    "type": "",
+    "url": ""
+  },
+  "primaryGuarantor": {
+    "id": 0,
+    "type": "",
+    "url": ""
+  },
+  "primaryProvider": {
+    "id": 0,
+    "type": "",
+    "url": ""
+  },
+  "referredByPatient": {
+    "id": 0,
+    "type": "",
+    "url": ""
+  },
+  "referredByReferral": {
+    "id": 0,
+    "type": "",
+    "url": ""
+  },
+  "secondaryContact": {
+    "id": 0,
+    "type": "",
+    "url": ""
+  },
+  "secondaryGuarantor": {
+    "id": 0,
+    "type": "",
+    "url": ""
+  },
+  "title": ""
+}

@@ -2,6 +2,9 @@
 
 require_once "api.php";
 
+$arturo =getPatients("FX2005");
+print_r($arturo);
+
 
 
 if (count($_POST)==0){
@@ -13,6 +16,7 @@ if (count($_POST)==0){
 
     $patientSearch = getData("patients", $filter);
     $patients = $patientSearch->data;
+     print_r($patientSearch);
 
 
 
